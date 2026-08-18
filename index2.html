@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="color-scheme" content="light only" />
   <meta name="supported-color-schemes" content="light only" />
+  <meta name="format-detection" content="telephone=no, date=no, address=no, email=no, url=no" />
   <title>Email Signature</title>
   <style>
     :root {
@@ -34,22 +35,39 @@
       color: #ffffff !important;
       -webkit-text-fill-color: #ffffff !important;
     }
+
+    /* Neutralize Apple Mail's auto data-detector styling (phone/address links) */
+    .x-apple-data-detectors,
+    .x-apple-data-detectors *,
+    a[x-apple-data-detectors] {
+      color: inherit !important;
+      text-decoration: none !important;
+      font-size: inherit !important;
+      font-family: inherit !important;
+      font-weight: inherit !important;
+      line-height: inherit !important;
+    }
   </style>
 </head>
 
 <body style="margin:0; padding:0;  color:#ffffff !important; color-scheme:light only;">
   <table
     class="signature-wrapper"
+    role="presentation"
     cellpadding="0"
     cellspacing="0"
+    border="0"
     width="600"
     height="200"
     style="
       width:600px !important;
+      min-width:600px;
+      max-width:600px;
       height:200px !important;
+      table-layout:fixed;
       background-image:url('https://montra-email-signature.vercel.app/img/montra-email-signature-bg.png');
       background-repeat:no-repeat;
-      background-size:600px 200px;
+      background-size:100% 100%;
       background-position:center;
       background-color:#0b3fd6 !important;
       color:#ffffff !important;
@@ -62,16 +80,17 @@
       <!-- LEFT CONTENT -->
       <td
         valign="top"
-        width="360"
-        style="padding-left:35px; padding-top:20px;"
+        width="325"
+        style="width:325px; vertical-align:top; padding-left:35px; padding-top:20px;"
       >
         <!-- Name + Designation -->
-        <table cellpadding="0" cellspacing="0" width="100%">
+        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="width:100%; table-layout:fixed;">
           <tr>
             <td>
-              <p
+              <span
                 class="signature-name"
                 style="
+                  display:block;
                   margin:0;
                   font-size:22px;
                   line-height:28px;
@@ -82,11 +101,12 @@
                 "
               >
                 Nirdesh Malik
-              </p>
+              </span>
 
-              <p
+              <span
                 class="signature-title"
                 style="
+                  display:block;
                   margin:4px 0 0 0;
                   font-size:12px;
                   line-height:16px;
@@ -96,18 +116,18 @@
                 "
               >
                 Founder &amp; CEO
-              </p>
+              </span>
             </td>
           </tr>
         </table>
 
         <!-- Divider -->
-        <table cellpadding="0" cellspacing="0" width="100%">
+        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="width:100%; table-layout:fixed;">
           <tr>
             <td style="padding-top:10px; padding-bottom:12px;">
-              <table cellpadding="0" cellspacing="0" width="160" height="1" style="border-collapse:collapse;">
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="160" height="1" style="width:160px; border-collapse:collapse;">
                 <tr>
-                  <td width="160" height="1" style="font-size:0; line-height:1px; background-color:rgba(255,255,255,0.4);">&nbsp;</td>
+                  <td width="160" height="1" style="width:160px; font-size:0; line-height:1px; background-color:rgba(255,255,255,0.4);">&nbsp;</td>
                 </tr>
               </table>
             </td>
@@ -115,16 +135,17 @@
         </table>
 
         <!-- Contact Details -->
-        <table cellpadding="0" cellspacing="0" width="320">
+        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="320" style="width:320px; table-layout:fixed;">
           <tr>
-            <td width="24" height="26" valign="middle" style="padding-top:4px;">
+            <td width="24" height="26" valign="middle" style="width:24px; vertical-align:middle; padding-top:4px;">
               <img src="https://montra-email-signature.vercel.app/img/contact-img-new.png" alt="Phone" width="16" height="16" style="display:block; opacity:1 !important; filter:none !important; -webkit-filter:none !important; mix-blend-mode:normal !important;" />
             </td>
-            <td height="26" valign="middle">
+            <td width="296" height="26" valign="middle" style="width:296px; vertical-align:middle;">
               <a
                 class="signature-contact"
                 href="tel:+2348023970955"
                 style="
+                  display:inline-block;
                   font-size:12px;
                   line-height:17px;
                   color:#ffffff !important;
@@ -139,15 +160,16 @@
           </tr>
 
           <tr>
-            <td width="24" height="26" valign="middle" style="padding-top:2px;">
+            <td width="24" height="26" valign="middle" style="width:24px; vertical-align:middle; padding-top:2px;">
               <img src="https://montra-email-signature.vercel.app/img/web-img-new.png" alt="Website" width="15" height="15" style="display:block; opacity:1 !important; filter:none !important; -webkit-filter:none !important; mix-blend-mode:normal !important;" />
             </td>
-            <td height="26" valign="middle">
+            <td width="296" height="26" valign="middle" style="width:296px; vertical-align:middle;">
               <a
                 class="signature-contact"
                 href="https://www.montra.app/"
                 target="_blank"
                 style="
+                  display:inline-block;
                   font-size:12px;
                   line-height:17px;
                   color:#ffffff !important;
@@ -162,38 +184,40 @@
           </tr>
 
           <tr>
-            <td width="24" height="36" valign="top" style="padding-top:10px;">
+            <td width="24" height="36" valign="top" style="width:24px; vertical-align:top; padding-top:10px;">
               <img src="https://montra-email-signature.vercel.app/img/location-img-new.png" alt="Location" width="14" height="15" style="display:block; opacity:1 !important; filter:none !important; -webkit-filter:none !important; mix-blend-mode:normal !important;" />
             </td>
-            <td height="36" valign="top" style="padding-top:4px;">
-              <p
+            <td width="296" height="36" valign="top" style="width:296px; vertical-align:top; padding-top:4px;">
+              <a
                 class="signature-contact"
+                href="https://www.google.com/maps/search/?api=1&amp;query=20%2C+Layi+Yusuf+Crescent%2C+Off+Admiralty%2C+Lekki+Phase+1%2C+Lagos%2C+Nigeria"
+                target="_blank"
                 style="
+                  display:inline-block;
                   margin:0;
-                  width:230px;
+                  white-space:nowrap;
                   font-size:12px;
                   line-height:17px;
                   color:#ffffff !important;
                   -webkit-text-fill-color:#ffffff !important;
+                  text-decoration:none;
                   font-weight:300;
                 "
               >
               20, Layi Yusuf Crescent, Off Admiralty,<br /> Lekki Phase 1, Lagos, Nigeria
-                <!-- 312, Grandslam I-Thum, A-40,<br />
-                Sector-62, Noida, Uttar Pradesh -->
-              </p>
+              </a>
             </td>
           </tr>
         </table>
       </td>
 
       <!-- RIGHT SIDE -->
-      <td valign="top" width="240">
-        <table cellpadding="0" cellspacing="0" width="100%">
+      <td valign="top" width="240" style="width:240px; vertical-align:top;">
+        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="width:100%; table-layout:fixed;">
           <!-- Social Icons -->
           <tr>
             <td align="right" style="padding-top:22px; padding-right:30px;">
-              <table cellpadding="0" cellspacing="0">
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0">
                 <tr>
                   <td>
                     <a href="https://www.facebook.com/people/Montra-Nigeria/61553206088663/" target="_blank">
