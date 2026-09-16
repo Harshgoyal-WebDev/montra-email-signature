@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Orbit — Plan less. Ship more.</title>
+
+<!-- Primary SEO -->
+<meta name="description" content="Orbit turns scattered tasks into a single flight plan for your team. See what shipped, what's stuck, and what's next — at a glance." />
+
+<!-- Open Graph / Facebook / Slack / Discord -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://montra-email-signature.vercel.app/landing.html" />
+<meta property="og:title" content="Orbit — Plan less. Ship more." />
+<meta property="og:description" content="Orbit turns scattered tasks into a single flight plan for your team. See what shipped, what's stuck, and what's next — at a glance." />
+<meta property="og:image" content="https://montra-email-signature.vercel.app/img/landing/og-animated.gif" />
+<meta property="og:image:secure_url" content="https://montra-email-signature.vercel.app/img/landing/og-animated.gif" />
+<meta property="og:image:type" content="image/gif" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Orbit animated logo with a satellite dot circling the wordmark" />
+<meta property="og:site_name" content="Orbit" />
+
+<!-- Twitter / X (will render only the first frame, but tags are still required) -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Orbit — Plan less. Ship more." />
+<meta name="twitter:description" content="Orbit turns scattered tasks into a single flight plan for your team." />
+<meta name="twitter:image" content="https://montra-email-signature.vercel.app/img/landing/og-animated.gif" />
+
+<style>
+  :root {
+    --bg: #0d0a26;
+    --bg-soft: #14103a;
+    --card: #181341;
+    --text: #f5f4ff;
+    --muted: #b4aee0;
+    --accent: #db2777;
+    --accent-2: #f97316;
+    --accent-3: #581c87;
+    --ring: rgba(255,255,255,0.12);
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    scroll-behavior: smooth;
+  }
+
+  a { color: inherit; }
+
+  .wrap {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* Nav */
+  header.nav {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    backdrop-filter: blur(10px);
+    background: rgba(13, 10, 38, 0.75);
+    border-bottom: 1px solid var(--ring);
+  }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+    max-width: 1120px;
+    margin: 0 auto;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 800;
+    font-size: 20px;
+    letter-spacing: 0.02em;
+  }
+  .logo-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #fff, var(--accent-2) 60%, var(--accent) 100%);
+    box-shadow: 0 0 16px 2px rgba(249,115,22,0.6);
+  }
+  nav.links { display: flex; gap: 28px; font-size: 14px; color: var(--muted); }
+  nav.links a { text-decoration: none; transition: color .2s; }
+  nav.links a:hover { color: var(--text); }
+  .nav-cta {
+    padding: 9px 18px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, var(--accent-2), var(--accent));
+    color: #fff;
+    font-weight: 600;
+    font-size: 14px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  /* Hero */
+  .hero {
+    position: relative;
+    overflow: hidden;
+    padding: 96px 0 80px;
+    text-align: center;
+    background:
+      radial-gradient(600px 300px at 20% 0%, rgba(88,28,135,0.55), transparent 60%),
+      radial-gradient(700px 400px at 85% 10%, rgba(219,39,119,0.35), transparent 60%),
+      var(--bg);
+  }
+  .eyebrow {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid var(--ring);
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 24px;
+  }
+  h1.hero-title {
+    font-size: clamp(36px, 6vw, 68px);
+    line-height: 1.05;
+    margin: 0 0 20px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+  h1.hero-title .grad {
+    background: linear-gradient(90deg, var(--accent-2), var(--accent));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .hero-sub {
+    max-width: 640px;
+    margin: 0 auto 36px;
+    color: var(--muted);
+    font-size: 18px;
+    line-height: 1.6;
+  }
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 64px;
+  }
+  .btn-primary, .btn-secondary {
+    padding: 14px 28px;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 15px;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--accent-2), var(--accent));
+    color: #fff;
+    box-shadow: 0 10px 30px -8px rgba(219,39,119,0.6);
+  }
+  .btn-secondary {
+    background: rgba(255,255,255,0.06);
+    color: var(--text);
+    border: 1px solid var(--ring);
+  }
+
+  .hero-image {
+    position: relative;
+    max-width: 980px;
+    margin: 0 auto;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid var(--ring);
+    box-shadow: 0 40px 80px -30px rgba(0,0,0,0.7);
+  }
+  .hero-image img { display: block; width: 100%; height: auto; }
+
+  /* Logos strip */
+  .logos {
+    padding: 40px 0;
+    border-top: 1px solid var(--ring);
+    border-bottom: 1px solid var(--ring);
+  }
+  .logos-inner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    justify-content: center;
+    align-items: center;
+    color: var(--muted);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    font-size: 14px;
+    text-transform: uppercase;
+    opacity: 0.7;
+  }
+
+  /* Features */
+  .section {
+    padding: 96px 0;
+  }
+  .section-head {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 56px;
+  }
+  .section-tag {
+    color: var(--accent-2);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 800;
+    margin: 0 0 16px;
+    letter-spacing: -0.01em;
+  }
+  .section-sub { color: var(--muted); font-size: 16px; line-height: 1.6; }
+
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--ring);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform .25s ease, border-color .25s ease;
+  }
+  .card:hover { transform: translateY(-4px); border-color: rgba(255,255,255,0.25); }
+  .card img { width: 100%; height: 180px; object-fit: cover; display: block; }
+  .card-body { padding: 22px; }
+  .card-body h3 { margin: 0 0 8px; font-size: 18px; }
+  .card-body p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.6; }
+
+  /* Showcase */
+  .showcase {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+  .showcase img {
+    width: 100%;
+    border-radius: 16px;
+    border: 1px solid var(--ring);
+    box-shadow: 0 30px 60px -25px rgba(0,0,0,0.6);
+  }
+  .showcase-list { list-style: none; padding: 0; margin: 24px 0 0; display: flex; flex-direction: column; gap: 18px; }
+  .showcase-list li { display: flex; gap: 14px; align-items: flex-start; color: var(--muted); font-size: 15px; line-height: 1.6; }
+  .check {
+    flex: none;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent-2), var(--accent));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    color: #fff;
+    margin-top: 2px;
+  }
+
+  /* Testimonials */
+  .testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .t-card {
+    background: var(--card);
+    border: 1px solid var(--ring);
+    border-radius: 16px;
+    padding: 24px;
+  }
+  .t-quote { color: var(--text); font-size: 15px; line-height: 1.6; margin: 0 0 20px; }
+  .t-person { display: flex; align-items: center; gap: 12px; }
+  .t-person img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; }
+  .t-name { font-weight: 700; font-size: 14px; }
+  .t-role { color: var(--muted); font-size: 13px; }
+
+  /* CTA */
+  .cta {
+    text-align: center;
+    background: linear-gradient(135deg, rgba(88,28,135,0.5), rgba(219,39,119,0.35));
+    border-radius: 24px;
+    padding: 72px 32px;
+    border: 1px solid var(--ring);
+  }
+  .cta h2 { font-size: clamp(26px, 4vw, 38px); margin: 0 0 16px; font-weight: 800; }
+  .cta p { color: var(--muted); margin: 0 0 32px; }
+
+  footer {
+    padding: 48px 0;
+    border-top: 1px solid var(--ring);
+    color: var(--muted);
+    font-size: 13px;
+    text-align: center;
+  }
+
+  @media (max-width: 860px) {
+    nav.links { display: none; }
+    .grid-3 { grid-template-columns: 1fr; }
+    .showcase { grid-template-columns: 1fr; }
+    .testimonial-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="logo"><span class="logo-dot"></span> Orbit</div>
+    <nav class="links">
+      <a href="#features">Features</a>
+      <a href="#showcase">Product</a>
+      <a href="#testimonials">Customers</a>
+    </nav>
+    <a class="nav-cta" href="#cta">Get started</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow">✦ Now with automatic status rollups</span>
+    <h1 class="hero-title">Plan less.<br><span class="grad">Ship more.</span></h1>
+    <p class="hero-sub">Orbit turns scattered tasks, docs, and threads into a single flight plan for your team — so everyone can see what shipped, what's stuck, and what's next.</p>
+    <div class="hero-actions">
+      <a class="btn-primary" href="#cta">Start free trial</a>
+      <a class="btn-secondary" href="#showcase">See how it works</a>
+    </div>
+    <div class="hero-image">
+      <img src="img/landing/hero.jpg" alt="Team dashboard preview" />
+    </div>
+  </div>
+</section>
+
+<section class="logos">
+  <div class="wrap logos-inner">
+    <span>Nimbus</span>
+    <span>Kestrel</span>
+    <span>Voxel Labs</span>
+    <span>Fernbank</span>
+    <span>Loom &amp; Co</span>
+    <span>Haywire</span>
+  </div>
+</section>
+
+<section class="section" id="features">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-tag">Features</div>
+      <h2 class="section-title">Everything your team needs to stay in sync</h2>
+      <p class="section-sub">No more status-update meetings. No more "what's the latest on this?" pings. Just one clear view of the work.</p>
+    </div>
+    <div class="grid-3">
+      <div class="card">
+        <img src="img/landing/feature1.jpg" alt="Live timeline feature" />
+        <div class="card-body">
+          <h3>Live timelines</h3>
+          <p>Every task, deadline, and dependency plotted automatically — updated the moment anything changes.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="img/landing/feature2.jpg" alt="Smart alerts feature" />
+        <div class="card-body">
+          <h3>Smart alerts</h3>
+          <p>Orbit flags work that's stalling before it becomes a fire drill, and tells you exactly who to nudge.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="img/landing/feature3.jpg" alt="One-click reports feature" />
+        <div class="card-body">
+          <h3>One-click reports</h3>
+          <p>Turn a messy sprint into a clean, shareable summary your stakeholders will actually read.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="showcase">
+  <div class="wrap">
+    <div class="showcase">
+      <img src="img/landing/showcase.jpg" alt="Orbit product screenshot" />
+      <div>
+        <div class="section-tag">Product</div>
+        <h2 class="section-title" style="text-align:left;">Built for teams who'd rather ship than status-check</h2>
+        <ul class="showcase-list">
+          <li><span class="check">✓</span> Auto-generated weekly digests, no manual write-ups.</li>
+          <li><span class="check">✓</span> Works with the tools you already use — no migration required.</li>
+          <li><span class="check">✓</span> Permissions that map to how your org actually works.</li>
+          <li><span class="check">✓</span> Fast enough to feel instant, even with thousands of tasks.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="testimonials">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-tag">Customers</div>
+      <h2 class="section-title">Teams move faster with Orbit</h2>
+    </div>
+    <div class="testimonial-grid">
+      <div class="t-card">
+        <p class="t-quote">"We cut our weekly status meeting entirely. Orbit just tells us what we need to know."</p>
+        <div class="t-person">
+          <img src="img/landing/avatar1.jpg" alt="Customer avatar" />
+          <div>
+            <div class="t-name">Maya Chen</div>
+            <div class="t-role">Head of Ops, Nimbus</div>
+          </div>
+        </div>
+      </div>
+      <div class="t-card">
+        <p class="t-quote">"The alerting caught a stalled launch three days before it would've slipped. Paid for itself instantly."</p>
+        <div class="t-person">
+          <img src="img/landing/avatar2.jpg" alt="Customer avatar" />
+          <div>
+            <div class="t-name">Daniel Osei</div>
+            <div class="t-role">PM, Kestrel</div>
+          </div>
+        </div>
+      </div>
+      <div class="t-card">
+        <p class="t-quote">"Rolled it out to 40 people in an afternoon. Nobody asked for a manual."</p>
+        <div class="t-person">
+          <img src="img/landing/avatar3.jpg" alt="Customer avatar" />
+          <div>
+            <div class="t-name">Priya Nair</div>
+            <div class="t-role">Founder, Voxel Labs</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="cta">
+  <div class="wrap">
+    <div class="cta">
+      <h2>Ready to get out of status-update purgatory?</h2>
+      <p>Free for teams under 10. No credit card required.</p>
+      <a class="btn-primary" href="#">Start free trial</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    Orbit is a demo landing page. Built to test animated link previews.
+  </div>
+</footer>
+
+</body>
+</html>
